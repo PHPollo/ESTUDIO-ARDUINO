@@ -32,6 +32,7 @@ ANOTACIONES:
   ENZAMBLE:
   - El PIN GND corresponde a la conexión negativa(-)
   - Los PINES numericos representan a conxiones positivas(+)
+  - La parte larga del LED se concta a la conexión positiva(+), mientras que la más corta corresponde a la negativa(-)
   
 
 NOTA:
