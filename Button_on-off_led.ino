@@ -2,22 +2,27 @@
 
 
 
-//PINES ====================================================
-// Boton:
+//VARIABLES ================================================
+// PINES:
+// Boton
 const int PIN_button = 4;
 
-// Led:
+// Led
 const int PIN_led = 19;
+
+
+// VALORES:
+int value_button;
 
 
 
 //CONFIGURACIONES ===========================================
 void setup() {
-  //
+  //Inicializar la comunicación entre la ESP32 con la computadora.
   Serial.begin(115200);
 
-  //Asignar rol en los pines (Entrada/INPUT o Salida/OUTPUT)
-  pinMode(PIN_button, INPUT);
+  //Asignar rol en los pines (Entrada (INPUT/INPUT_PULLUP) o Salida (OUTPUT)).
+  pinMode(PIN_button, INPUT_PULLUP);  //Uso de INPUT_PULLUP para evitar valores flotantes (valores incorrectos)
   pinMode(PIN_led, OUTPUT);
 }
 
@@ -26,10 +31,11 @@ void setup() {
 //COMPORTAMIENTO ============================================
 void loop() {
   //Leer el valor del pin del boton.
-  int value_button = digitalRead(PIN_button);
-
+  value_button = digitalRead(PIN_button);
+  Serial.println(value_button);
+  
   //Dependiendo de la señal (0 o 1) encendera el led.
-  if(value_button == HIGH) {
+  if(value_button == LOW) {
     
     digitalWrite(PIN_led, HIGH);  //Encender
   }
@@ -61,5 +67,3 @@ valor 0 o 1 dependiendo de si el botón está presionado o no.
 
 VERSIÓN CORREGIDA POR CHAT GPT.
 */
-
-
